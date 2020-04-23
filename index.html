@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html><head>
+	<meta name="generator" content="Hugo 0.69.0" />
+	<title> dance 主题 - ByteRest </title>
+	<meta chrset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="">
+	<base href="http://example.org/">
+	<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital@1&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="/css/ui.css" />
+</head><body>
+        <div class="wrapper"><div class="header">
+<a href="/" class="url">byterest.com</a>
+<span style="float: right;" class="theme"><img id="icon" width="20px" src="/icons/sun.svg" alt=""></span>
+</div>
+  <div class="container">
+  <h1 style="font-weight: normal;font-family: 'Merriweather', serif;color: var(--font-color);">Posts</h1>
+  <div class="articles">
+   
+  <article class="article-item">
+      <a href="/2020/dark-mode-for-website/" class="article-title">使用 CSS variables 为网站添加 Dark Mode</a>
+      <span class="article-time"> 2020-04-23</span>
+  </article>
+  
+</div>
+</div>
+
+        
+        
+        </div><div class="footer">
+<p style="line-height: 18px;color: var(--font-color);">byterest.com / <a class="url" style="font-size: 16px;" href="http://www.beian.miit.gov.cn/">蜀ICP备20011351号-1</a> /powered by hugo / designed by lws</p>
+</div>
+<script>
+    touch = document.querySelector('.theme');
+    var curtheme = localStorage.getItem('theme');
+    console.log(curtheme);
+    icon = document.getElementById('icon');
+    function changeicon(theme){
+        if (theme=='light'){
+            icon.src='/icons/sun.svg';
+        }
+        else{
+            icon.src='/icons/moon.svg';
+        }
+    }
+    if (curtheme) {
+        document.documentElement.setAttribute('data-theme', curtheme);
+        changeicon(curtheme);
+    }
+    else {
+        localStorage.setItem('theme', 'light');
+        curtheme = 'light';
+        changeicon(curtheme);
+    }
+    function switchtheme(){
+        if (curtheme=='light') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+            curtheme = 'dark';
+            changeicon(curtheme);
+        }
+        else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+            curtheme = 'light';
+            changeicon(curtheme);
+        }
+        console.log('toggle')
+    }
+    touch.addEventListener('click', switchtheme, false);
+    
+</script></body>
+</html>

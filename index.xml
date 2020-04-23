@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>dance 主题</title>
+    <link>http://example.org/</link>
+    <description>Recent content on dance 主题</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 23 Apr 2020 10:12:12 +0800</lastBuildDate>
+    
+	<atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>使用 CSS variables 为网站添加 Dark Mode</title>
+      <link>http://example.org/2020/dark-mode-for-website/</link>
+      <pubDate>Thu, 23 Apr 2020 10:12:12 +0800</pubDate>
+      
+      <guid>http://example.org/2020/dark-mode-for-website/</guid>
+      <description>我们可以使用 CSS Variables 实现不刷新更改网页主题。
+下面是 MDN 上对 CSS Variables 的介绍
+ Custom properties (sometimes referred to as CSS variables or cascading variables) are entities defined by CSS authors that contain specific values to be reused throughout a document. They are set using custom property notation (e.g., &amp;ndash;main-color: black;) and are accessed using the var() function (e.g., color: var(&amp;ndash;main-color);)
+ 接下来，我们定义一个默认主题，为了让配色可以全局访问，需要在 :root 下
+:root { --primary-color: #302AE6; --secondary-color: #536390; --font-color: #171717; --bg-color: #fff; --heading-color: #292922; --hover-color:#42b983; --time-color:#ccc; } 接下来再添加一个暗色主题</description>
+    </item>
+    
+  </channel>
+</rss>
