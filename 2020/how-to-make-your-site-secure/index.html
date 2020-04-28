@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html><head>
+	<title> 为网站开启 HTTPS - ByteRest </title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="">
+	<base href="https://byterest.com/">
+	<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital@1&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="/css/ui.css" />
+	<link rel="shortcut icon" href="/icons/logo.jpg" type="image/x-icon">
+</head><body>
+        <div class="wrapper"><div class="header">
+<a href="/" class="url">Byterest</a>
+<span style="float: right;" class="theme"><img id="icon" width="20px" src="/icons/sun.svg" alt=""></span>
+</div>
+<div class="container">
+  <h1 style="color: var(--font-color);">为网站开启 HTTPS</h1>
+  <p class="article-time-detail"> 2020-04-28</p>
+  <div class="content" style="color: var(--font-color);">
+    <p>支持 HTTPS 的条件为：拥有一个域名,而且要做对应的DNS解析</p>
+<p>操作系统: Ubuntu 18.04</p>
+<p>命令为</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo add-apt-repository ppa:certbot/certbot
+$ sudo apt install python-certbot-nginx
+$ sudo nano /etc/nginx/sites-available/example.com
+</code></pre></div><p>如果没有找到 add-apt-repository 命令的话，你需要先进行这一步，然后回到上一步重新运行。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo apt-get install software-properties-common
+</code></pre></div><p>修改 NGINX 配置文件中的 server_name 值为 <a href="http://www.example.com">www.example.com</a> example.com</p>
+<p>重启 NGINX</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ nginx -t
+$ nginx -s reload
+</code></pre></div><p>获取 SSL 证书</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo certbot --nginx -d example.com -d www.example.com
+</code></pre></div><p>修改 example 为自己的域名,成功之后会询问你是否由 HTTP 重定向到 HTTPS,一般选确定。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo certbot renew --dry-run
+</code></pre></div><p>该命令可以让 HTTPS 自动更新。</p>
+
+  </div>
+</div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css">
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/prism.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+<style>
+
+  .content pre code {
+    text-shadow: none;
+    }
+  .content a {
+    color: var(--font-color);
+  }
+</style>
+
+
+        
+        
+        </div><div class="footer">
+<p style="line-height: 18px;color: var(--font-color);">  <span style="font-size: 14px;">byterest.com</span>   <a class="url" style="font-size: 14px;" href="http://www.beian.miit.gov.cn/">蜀ICP备20011351号-1</a></p>
+</div>
+<script>
+    touch = document.querySelector('.theme');
+    var curtheme = localStorage.getItem('theme');
+    console.log(curtheme);
+    icon = document.getElementById('icon');
+    function changeicon(theme){
+        if (theme=='light'){
+            icon.src='/icons/sun.svg';
+        }
+        else{
+            icon.src='/icons/moon.svg';
+        }
+    }
+    if (curtheme) {
+        document.documentElement.setAttribute('data-theme', curtheme);
+        changeicon(curtheme);
+    }
+    else {
+        localStorage.setItem('theme', 'light');
+        curtheme = 'light';
+        changeicon(curtheme);
+    }
+    function switchtheme(){
+        if (curtheme=='light') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+            curtheme = 'dark';
+            changeicon(curtheme);
+        }
+        else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+            curtheme = 'light';
+            changeicon(curtheme);
+        }
+        console.log('toggle')
+    }
+    touch.addEventListener('click', switchtheme, false);
+    
+</script></body>
+</html>
