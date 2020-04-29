@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="description" content="">
 	<base href="https://byterest.com/">
+	<meta name="baidu-site-verification" content="xGdete1GBS" />
 	<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital@1&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="/css/ui.css" />
 	<link rel="shortcut icon" href="/icons/logo.jpg" type="image/x-icon">
@@ -17,7 +18,7 @@
   <h1 style="color: var(--font-color);">为网站开启 HTTPS</h1>
   <p class="article-time-detail"> 2020-04-28</p>
   <div class="content" style="color: var(--font-color);">
-    <p>支持 HTTPS 的条件为：拥有一个域名,而且要做对应的DNS解析</p>
+    <p>支持 HTTPS 的条件为：拥有一个域名,而且要做对应的 DNS 解析</p>
 <p>操作系统: Ubuntu 18.04</p>
 <p>命令为</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo add-apt-repository ppa:certbot/certbot
@@ -27,8 +28,8 @@ $ sudo nano /etc/nginx/sites-available/example.com
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo apt-get install software-properties-common
 </code></pre></div><p>修改 NGINX 配置文件中的 server_name 值为 <a href="http://www.example.com">www.example.com</a> example.com</p>
 <p>重启 NGINX</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ nginx -t
-$ nginx -s reload
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo nginx -t
+$ sudo nginx -s reload
 </code></pre></div><p>获取 SSL 证书</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo certbot --nginx -d example.com -d www.example.com
 </code></pre></div><p>修改 example 为自己的域名,成功之后会询问你是否由 HTTP 重定向到 HTTPS,一般选确定。</p>
