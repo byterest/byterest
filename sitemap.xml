@@ -4,12 +4,17 @@
   
   <url>
     <loc>https://byterest.com/</loc>
-    <lastmod>2020-04-28T22:36:06+08:00</lastmod>
+    <lastmod>2020-04-29T11:19:42+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://byterest.com/posts/</loc>
-    <lastmod>2020-04-28T22:36:06+08:00</lastmod>
+    <lastmod>2020-04-29T11:19:42+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://byterest.com/2020/flask-deploy/</loc>
+    <lastmod>2020-04-29T11:19:42+08:00</lastmod>
   </url>
   
   <url>
